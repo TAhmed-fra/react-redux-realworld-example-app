@@ -25,7 +25,7 @@ jobs:
           node -v
           npm -v
 
-      - name: Install dependencies (tolerant)
+      - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
             npm ci --legacy-peer-deps
@@ -33,7 +33,6 @@ jobs:
             npm install --legacy-peer-deps
           fi
 
-      # CRA treats warnings as errors when CI=true, so... no.
       - name: Build
         env:
           CI: "false"
